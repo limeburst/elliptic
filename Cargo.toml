@@ -2,3 +2,4 @@
 name = "elliptic"
 version = "0.1.0"
 authors = ["Jihyeok Seo <limeburst@member.fsf.org>"]
+license = "GPL-3.0"
