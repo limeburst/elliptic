@@ -1,5 +1,5 @@
 [package]
-name = "curve25519-sys"
+name = "elliptic-sys"
 version = "0.1.0"
 authors = ["Jihyeok Seo <limeburst@member.fsf.org>"]
 build = "build.rs"

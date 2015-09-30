@@ -1,6 +1,6 @@
-extern crate curve25519_sys;
+extern crate elliptic_sys;
 
-use curve25519_sys::{curve25519_keygen, curve25519_sign, curve25519_verify};
+use elliptic_sys::{curve25519_keygen, curve25519_sign, curve25519_verify};
 
 const CURVE25519_PRIVKEY_IN: [u8; 32] = [
     0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,

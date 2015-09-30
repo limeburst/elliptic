@@ -1,3 +1,3 @@
-[submodule "curve25519-sys/ref10_extract"]
-	path = curve25519-sys/ref10_extract
+[submodule "elliptic-sys/ref10_extract"]
+	path = elliptic-sys/ref10_extract
 	url = https://github.com/trevp/ref10_extract
