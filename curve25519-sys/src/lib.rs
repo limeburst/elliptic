@@ -17,5 +17,6 @@ extern {
                            random: *const c_uchar) -> c_int;
     pub fn curve25519_verify(signature: *const c_uchar,
                              curve25519_pubkey: *const c_uchar,
-                             msg: *const c_uchar) -> c_int;
+                             msg: *const c_uchar,
+                             msg_len: c_ulong) -> c_int;
 }
