@@ -2,4 +2,6 @@
 name = "elliptic"
 version = "0.1.0"
 authors = ["Jihyeok Seo <limeburst@member.fsf.org>"]
+description = "Rust bindings for trevp/ref10_extract."
+repository = "https://github.com/lumi-im/elliptic"
 license = "GPL-3.0"
