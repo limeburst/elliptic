@@ -40,7 +40,7 @@ fn test_curve25519_keygen() {
 fn test_curve25519_sign() {
     let signature = curve25519::sign(
         &CURVE25519_PRIVKEY_IN,
-        &CURVE25519_MESSAGE.to_vec(),
+        &CURVE25519_MESSAGE,
         &CURVE25519_RANDOM_BYTES
         );
     assert_eq!(&CURVE25519_SIGNATURE_OUT_CORRECT[..], &signature.unwrap()[..]);
@@ -51,7 +51,7 @@ fn test_curve25519_verify() {
     let verify_good = curve25519::verify(
         &CURVE25519_SIGNATURE_OUT_CORRECT,
         &CURVE25519_PUBKEY_OUT_CORRECT,
-        &CURVE25519_MESSAGE.to_vec(),
+        &CURVE25519_MESSAGE,
         );
     assert_eq!(true, verify_good);
     let mut bad_signature = CURVE25519_SIGNATURE_OUT_CORRECT;
@@ -59,8 +59,7 @@ fn test_curve25519_verify() {
     let verify_bad = curve25519::verify(
         &bad_signature,
         &CURVE25519_PUBKEY_OUT_CORRECT,
-        &CURVE25519_MESSAGE.to_vec(),
+        &CURVE25519_MESSAGE,
         );
     assert_eq!(false, verify_bad);
 }
-
