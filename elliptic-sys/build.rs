@@ -2,6 +2,9 @@ extern crate gcc;
 
 fn main() {
     gcc::Config::new()
+        .file("curve25519-donna/curve25519-donna.c")
+        .compile("libcurve25519-donna.a");
+    gcc::Config::new()
         .file("ref10_extract/ed25519/fe_0.c")
         .file("ref10_extract/ed25519/fe_1.c")
         .file("ref10_extract/ed25519/fe_add.c")

@@ -1,6 +1,13 @@
 extern crate elliptic_sys;
 
-use elliptic_sys::{curve25519_keygen, curve25519_sign, curve25519_verify};
+use elliptic_sys::{curve25519_donna, curve25519_keygen, curve25519_sign, curve25519_verify};
+
+const CURVE25519_DONNA_BASEPOINT: [u8; 32] = [
+    0x09, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+    0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+    0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+    0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+];
 
 const CURVE25519_PRIVKEY_IN: [u8; 32] = [
     0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
@@ -29,6 +36,20 @@ const CURVE25519_SIGNATURE_OUT_CORRECT: [u8; 64] = [
 
 const CURVE25519_MESSAGE: [u8; 200] = [0u8; 200];
 const CURVE25519_RANDOM_BYTES: [u8; 64] = [0u8; 64];
+
+#[test]
+fn test_curve25519_donna() {
+    let mut curve25519_pubkey_out = [0u8; 32];
+    let donna = unsafe {
+        curve25519_donna(
+            curve25519_pubkey_out.as_mut_ptr(),
+            CURVE25519_PRIVKEY_IN.as_ptr(),
+            CURVE25519_DONNA_BASEPOINT.as_ptr()
+            )
+    };
+    assert_eq!(0, donna);
+    assert_eq!(CURVE25519_PUBKEY_OUT_CORRECT, curve25519_pubkey_out);
+}
 
 #[test]
 fn test_curve25519_keygen() {

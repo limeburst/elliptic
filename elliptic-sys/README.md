@@ -1,4 +1,4 @@
 elliptic-sys
 ============
 
-Rust FFI bindings for [trevp/ref10_extract](https://github.com/trevp/ref10_extract).
+Rust FFI bindings for [agl/curve25519-donna](https://github.com/agl/curve25519-donna) and [trevp/ref10_extract](https://github.com/trevp/ref10_extract).

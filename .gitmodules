@@ -1,3 +1,6 @@
 [submodule "elliptic-sys/ref10_extract"]
 	path = elliptic-sys/ref10_extract
 	url = https://github.com/trevp/ref10_extract
+[submodule "elliptic-sys/curve25519-donna"]
+	path = elliptic-sys/curve25519-donna
+	url = https://github.com/agl/curve25519-donna

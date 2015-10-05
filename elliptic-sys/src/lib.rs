@@ -6,6 +6,13 @@ use libc::{c_int, c_ulong, c_uchar};
 fn it_works() {
 }
 
+#[link(name = "curve25519-donna")]
+extern {
+    pub fn curve25519_donna(mypublic: *mut c_uchar,
+                            secret: *const c_uchar,
+                            basepoint: *const c_uchar) -> c_int;
+}
+
 #[link(name = "ref10_extract")]
 extern {
     pub fn curve25519_keygen(curve25519_pubkey_out: *mut c_uchar,

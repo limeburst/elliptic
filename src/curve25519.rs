@@ -1,4 +1,4 @@
-use elliptic_sys::{curve25519_keygen, curve25519_sign, curve25519_verify};
+use elliptic_sys::{curve25519_donna, curve25519_keygen, curve25519_sign, curve25519_verify};
 
 pub fn keygen(private_key: &[u8; 32]) -> [u8; 32] {
     let mut public_key = [0u8; 32];
@@ -39,5 +39,21 @@ pub fn verify(signature: &[u8; 64], public_key: &[u8; 32], message: &[u8]) -> bo
         true
     } else {
         false
+    }
+}
+
+pub fn donna(secret: &[u8; 32], basepoint: &[u8; 32]) -> Option<[u8; 32]> {
+    let mut public = [0u8; 32];
+    let result = unsafe {
+        curve25519_donna(
+            public.as_mut_ptr(),
+            secret.as_ptr(),
+            basepoint.as_ptr(),
+            )
+    };
+    if result == 0 {
+        Some(public)
+    } else {
+        None
     }
 }
