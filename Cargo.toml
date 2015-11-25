@@ -1,10 +1,10 @@
 [package]
 name = "elliptic"
-version = "0.4.0"
+version = "0.5.0"
 authors = ["Jihyeok Seo <limeburst@member.fsf.org>"]
 description = "Rust bindings for agl/curve25519-donna and trevp/ref10_extract."
 repository = "https://github.com/lumi-im/elliptic"
 license = "CC0-1.0"
 
 [dependencies]
-elliptic-sys = "0.2.0"
+elliptic-sys = "0.3.0"
